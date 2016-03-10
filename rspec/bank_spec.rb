@@ -40,4 +40,15 @@ describe Bank do
       expect(@bank.search_by_acct(5)).to be account
     end
   end
+
+  describe "#search_by_transaction" do
+    it "returns an account if the transaction number is included" do
+      person = Person.new("John", "Doe")
+      account = @bank.open_account(person)
+      account.deposit(5)
+      transaction = account.record[0]
+      transaction.id = 1
+      expect(@bank.search_by_transaction(1)).to be account
+    end
+  end
 end

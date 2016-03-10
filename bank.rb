@@ -38,6 +38,14 @@ class Bank
   end
 
   def search_by_transaction(number)
+    @accounts.each do |account|
+      account.record.each do |transaction|
+        if transaction.id = number
+          return account
+        end
+      end
+    end
+    nil
   end
 
   def get_all_transactions

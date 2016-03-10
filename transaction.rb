@@ -1,6 +1,6 @@
 require "date"
 class Transaction
-  attr_reader :date, :id, :difference
+  attr_accessor :date, :id, :difference
   def initialize(difference)
     @difference = difference
     rando = Random.new
